@@ -1,0 +1,73 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      nuTilda;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "include/inputs"
+
+// see discussion at https://turbmodels.larc.nasa.gov/spalart.html
+nuTildaInf #calc "3.0*$nu";
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform $nuTildaInf;
+
+boundaryField
+{
+    //- Set patchGroups for constraint patches
+    #includeEtc "caseDicts/setConstraintTypes"
+
+    outlet
+    {
+        type            zeroGradient; 
+    }
+
+    inlet 
+    {
+        type            fixedValue;
+        value           uniform $nuTildaInf; 
+    }
+
+    bottomWall
+    {
+        type            zeroGradient; 
+    }
+
+    topWall
+    {
+        type            zeroGradient; 
+    }
+
+    greenhouse
+    {
+        type            fixedValue;
+        value           uniform 0.0; 
+    }
+
+    yMinusWall 
+    {
+        type            zeroGradient; 
+    }
+
+    yPlusWall 
+    {
+        type            zeroGradient; 
+    }
+}
+
+
+// ************************************************************************* //
+}
+
+// ************************************************************************* //

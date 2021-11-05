@@ -1,0 +1,73 @@
+
+
+    **** Greenhouse with RAS Spalart Allmaras ****
+
+    === Overview
+
+    A half cylinder of radius R = 1 m and width W = 4 m is placed in cross-flow on the bottom wall of a wind-tunnel.
+    The incoming flow consists of a U = 1 m/s free stream with constant density rho = 1 kg/m3. Hence the Reynolds number of the
+    flow is Re = U R / nu = 1/nu. Setting nu (m2/s) allows to control the Reynolds number of the flow.
+    In this case, it is set such that Re = 295,000 and the flow over the greenhouse (half cylinder) is turbulent.
+    The flow is solved with on a mesh with suitable boundary layers, treated as incompressible and
+    exhibits a large recirculation region in the obstacle's wake.
+
+    The solution strategy consists in obtaining a potential flow solution first, followed by a solution to the
+    Reynolds Averaged Navier Stokes (RANS) equations with the Spalart-Allmaras one-equation model. The RANS solution
+    is steady and features resolved boundary layers.
+
+    The solution approach consists of 3 sequential steps
+
+    1. snappyHexMesh is used to castellate, snap, and add layers (see tutorial mesh/greenhouse-layers)
+    2. potentialFoam is used to obtain a potential flow solution (see tutorial potentialFoam/greenhouse)
+    3. simpleFoam is used to solve the RANS equations, taking 5,000 iterations to convergence to a solution
+    4. postProcess is used to extract various fields and calculate the wall shear stresses on the surface
+
+    As the simulation progresses, various diagnostics are ouputted to file, including the forces on the obstacle,
+    the force coefficients, the residuals of the equations, and visualization files of plane cuts through
+    the three-dimensional flow solution for all fields.
+
+    Once solutions are available, they can be loaded with the ParaView state viz.pvsm. Example pictures are in pics/
+
+    The case can be run in both serial and parallel, depending on the number of cells and serial and parallel SLURM
+    submission scripts are provided (openfoam.v7.serial.slurm and openfoam.v7.parallel.slurm).
+
+    On KNL nodes, it is best to execute the parallel version on 64 cores.
+
+
+    === Changing flow parameters 
+
+      1. In order to change the angle of attack, change the variable
+
+            rotAngle 0.0; // degrees
+    
+         in the file 0/include/inputs
+
+         This will change the blockMeshDict as well as the inlet velocity vectors accordingly.
+
+      2. In order to change the Reynolds number, change the variable
+
+           reynoldsNr 295000.0;
+
+         in the file 0/include/inputs
+
+         which is then used to compute the kinematic viscosity where needed. 
+
+  
+    === Postprocessing
+
+    Once data and results have been obtained, you can execute
+  
+        gnuplot cp.plt
+        gnuplot cp_xaxis.plt
+
+    to generate EPS files of the pressure coefficient as a function of the angle on the surface (mid plane)
+    and along the x-axis upstream of the half cylinder, which are compared to the potential flow solution also.
+
+    Also, you can load the ParaView state
+
+        viz.pvsm
+
+    to produce a visualization of the flow field.
+
+    Select EPS and PNG figures are available in pics/
+ 
