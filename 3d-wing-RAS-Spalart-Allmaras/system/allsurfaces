@@ -1,0 +1,250 @@
+
+surfaces
+(
+
+    //
+    // ---------------- z-normals -----------------
+    //
+
+    Z1
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 0.01);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z2
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 0.225);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z3
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 0.45);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z4
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 0.5);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z5
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 0.8875);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z6
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 1.0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z7
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 1.325);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z8
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 1.7625);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z9
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 2.0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    Z10
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $z;
+            basePoint    (0 0 2.19);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+
+    //
+    // ---------------- y-normals -----------------
+    //
+
+    Y1
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $y;
+            basePoint    (0 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+
+    //
+    // ---------------- x-normals -----------------
+    //
+
+    X1
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (-0.2 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    X2
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (0 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    X3
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (0.5 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    X4
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (1.0 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    X5
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (1.75 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    X6
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (2.5 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    X7
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (5.0 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    X8
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (10.0 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+    X9
+    {
+        $cuttingPlane;
+        pointAndNormalDict
+        {
+            normalVector $x;
+            basePoint    (20.0 0 0);
+        }
+        interpolate     false;
+        triangulate     false;
+    }
+
+    //
+    // ---------------- wing -----------------
+    //
+    wing 
+    {
+        type            patch;
+        patches        (wing);
+        interpolate     false;
+    }
+
+);

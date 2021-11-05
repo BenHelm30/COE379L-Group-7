@@ -1,0 +1,40 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# untar wing STL 
+tar -zxf wing.tar.gz
+runApplication surfaceFeatures
+
+runApplication blockMesh
+runApplication checkMesh
+
+runApplication decomposePar -copyZero
+
+runParallel snappyHexMesh -dict system/snappyHexMeshDict.castellatedMeshSnap -overwrite
+
+mv log.snappyHexMesh log.snappyHexMesh-1
+  
+mv log.checkMesh log.checkMesh-1
+runParallel checkMesh
+
+runParallel snappyHexMesh -dict system/snappyHexMeshDict.addLayers -overwrite
+
+mv log.checkMesh log.checkMesh-2
+runParallel checkMesh
+
+runParallel patchSummary
+
+runParallel potentialFoam -writePhi -writep
+
+runParallel postProcess -field Phi -funcs '( grad(Phi) mag(grad(Phi)) surfacesPhi )' -time 0
+
+runParallel simpleFoam
+
+#mv log.simpleFoam log.simpleFoam-1
+#runParallel simpleFoam -postProcess -funcs '( wallShearStress mag(U) )' -latestTime
+
+#------------------------------------------------------------------------------

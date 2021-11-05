@@ -1,0 +1,58 @@
+
+
+    **** Boeing BACXXX 3D wing in wind tunnel with Spalart Allmaras **** 
+
+    === Overview
+
+    The simulation considers a Boeing BACXXX 3D wing in a free stream. Solution to the RANS equations with
+    Spalart Allmaras closure is considered. The angle of attack is 0 degrees and the Reynolds number based on
+    the root chord and the free stream is 280,000, comparable to a university tunnel with a small test article.
+
+    The solution strategy consists in obtaining a potential flow solution first, followed by a solution to the
+    Reynolds Averaged Navier Stokes (RANS) equations with the Spalart-Allmaras one-equation model. The RANS solution
+    is steady and features resolved boundary layers. Wall functions are *not* used.
+
+    The solution approach consists of 3 sequential steps
+
+    1. snappyHexMesh is used to castellate, snap, and add layers
+    2. potentialFoam is used to obtain a potential flow solution
+    3. simpleFoam is used to solve the RANS equations, taking 2000 iterations to convergence to a solution
+
+    As the simulation progresses, various diagnostics are ouputted to file, including the forces on the wing,
+    the force coefficients, the residuals of the equations, and visualization files of plane cuts through
+    the three-dimensional flow solution for all fields.
+
+    The case can be run in parallel only due to the large number of cells.
+
+
+    === Changing flow parameters 
+
+      1. In order to change the angle of attack, change the variable
+
+            rotAngle 0.0; // degrees
+    
+         in the file 0/include/inputs
+
+         This will change the blockMeshDict as well as the inlet velocity vectors accordingly.
+
+      2. In order to change the Reynolds number, change the variable
+
+           reynoldsNr 295000.0;
+
+         in the file 0/include/inputs
+
+         which is then used to compute the kinematic viscosity where needed. 
+
+  
+    === Postprocessing
+
+    Once data and results have been obtained, you can execute
+  
+        gnuplot residuals.plt 
+        gnuplot forces.plt 
+        gnuplot forceCoeffs.plt 
+
+    to generate EPS files of the residuals, forces, and force coefficients as a function of the iteration number.
+
+    Select EPS, and PDF figures are available in pics/
+ 

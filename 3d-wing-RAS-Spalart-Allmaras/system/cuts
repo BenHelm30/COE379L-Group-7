@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes graph data for specified fields along a line, specified by start
+    and end points.
+
+\*---------------------------------------------------------------------------*/
+
+fields  ( p U nuTilda );
+
+// Sampling and I/O settings
+#includeEtc "caseDicts/postProcessing/graphs/sampleDict.cfg"
+
+// Override settings here, e.g.
+setConfig
+{ 
+  type lineCell; // at cell centroid crossed by the line
+  axis xyz; // distance, x, y, z, xyz
+}
+
+setConfig2
+{ 
+  type lineCell; // at cell centroid crossed by the line
+  axis distance; // distance, x, y, z, xyz
+}
+
+type            sets;
+libs            ("libsampling.so");
+
+writeControl    writeTime;
+
+
+sets
+(
+    leading_Z1_topsurf
+    {
+        $setConfig;
+        start (-0.19483062357750924 0.014070601483392127 0.1 );
+        end   (-0.281995745251032   0.24890369399205917  0.1 );
+    }
+    leading_Z1_topsurf_distance
+    {
+        $setConfig2;
+        start (-0.19483062357750924 0.014070601483392127 0.1 );
+        end   (-0.281995745251032   0.24890369399205917  0.1 );
+    }
+    mid_Z1_topsurf
+    {
+        $setConfig;
+        start ( 0.16545358845975058 0.023120392057143162 0.1 );
+        end   ( 0.16545358845975058 0.34821553173879227  0.1 );
+    }
+    leading_Z1_bottomsurf
+    {
+        $setConfig;
+        start (-0.19512069887083214  0.0021592337251600258  0.1);
+        end   (-0.2399470148738812   -0.2639970175429438    0.1);
+    }
+    mid_Z1_bottomsurf
+    {
+        $setConfig;
+        start ( 0.16545358845975058 -0.001696030819318635 0.1 );
+        end   ( 0.16173112502828138 -0.3540892356650756   0.1 );
+    }
+);
+
+// ************************************************************************* //

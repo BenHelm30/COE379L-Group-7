@@ -1,0 +1,26 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+
+# Source tutorial clean functions
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+# Remove surface and features
+rm -f constant/triSurface/wing.stl > /dev/null 2>&1
+rm -rf constant/extendedFeatureEdgeMesh > /dev/null 2>&1
+rm -f constant/triSurface/wing.eMesh > /dev/null 2>&1
+
+rm -f 0/Phi > /dev/null 2>&1
+rm -f 0/phi > /dev/null 2>&1
+rm -f 0/grad\(Phi\) > /dev/null 2>&1
+rm -f 0/mag\(grad\(Phi\)\) > /dev/null 2>&1
+rm -f 0/U > /dev/null 2>&1
+rm -f 0/p > /dev/null 2>&1
+rm -f 0/nut > /dev/null 2>&1
+rm -f 0/nuTilda > /dev/null 2>&1
+rm -f 0/pointLevel > /dev/null 2>&1
+rm -f 0/cellLevel > /dev/null 2>&1
+
+cleanCase
+
+#------------------------------------------------------------------------------
