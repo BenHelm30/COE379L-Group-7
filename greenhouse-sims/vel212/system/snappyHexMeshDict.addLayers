@@ -1,0 +1,178 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+castellatedMesh false;
+snap            false;
+addLayers       true;
+
+geometry
+{
+    greenhouse 
+    {
+        type triSurfaceMesh;
+        file "greenhouse.stl";
+    }
+
+    sphere1 
+    {
+        type searchableSphere;
+        centre          (0 0 0);
+        radius          3.35;
+    }
+    sphere2
+    {
+        type searchableSphere;
+        centre          (0 0 0);
+        radius          6.04;
+    }
+    sphere3
+    {
+        type searchableSphere;
+        centre          (0 0 0);
+        radius          12.97;
+    }
+
+};
+
+
+castellatedMeshControls
+{
+
+    maxLocalCells 100000;
+    maxGlobalCells 2000000;
+    minRefinementCells 10;
+    maxLoadUnbalance 0.10;
+    nCellsBetweenLevels 3;
+
+    features
+    (
+        {
+            file "greenhouse.eMesh";
+            level 6;
+        }
+    );
+
+
+    refinementSurfaces
+    {
+        greenhouse 
+        {
+            level (5 6);
+            patchInfo
+            {
+                type wall;
+            }
+        }
+    }
+
+    // Resolve sharp angles
+    resolveFeatureAngle 30;
+
+    refinementRegions
+    {
+        sphere1 
+        {
+            mode inside;
+            levels ((1E15 4));
+        }
+        sphere2
+        {
+            mode inside;
+            levels ((1E15 3));
+        }
+        sphere3
+        {
+            mode inside;
+            levels ((1E15 2));
+        }
+    }
+
+    locationInMesh (-2.0863 0.134129 0.11239);
+    allowFreeStandingZoneFaces true;
+}
+
+
+
+snapControls
+{
+    nSmoothPatch 3;
+    tolerance 2.0;
+    nSolveIter 30;
+    nRelaxIter 5;
+    nFeatureSnapIter 10;
+    implicitFeatureSnap false;
+    explicitFeatureSnap true;
+    multiRegionFeatureSnap false;
+}
+
+addLayersControls
+{
+    relativeSizes false;
+
+
+    firstLayerThickness 1.670000e-04;
+    //finalLayerThickness 3.476341e-03;
+    //thickness 4.000000e-02;
+    expansionRatio 1.090608e+00;
+
+    minThickness 1.67e-5; 
+
+    layers
+    {
+        "greenhouse"
+        {
+            nSurfaceLayers 36;
+        }
+    }
+
+    nGrow 0;
+    featureAngle 130; // 60
+
+    slipFeatureAngle 30;
+    nRelaxIter 3;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals 3;
+    nSmoothThickness 10;
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedianAxisAngle 90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter 50;
+}
+
+meshQualityControls
+{
+    #include "meshQualityDict"
+
+    // override defaults
+    minDeterminant 0.0001; //0.001;
+    minTetQuality -1e30; //1e-15;
+    maxNonOrtho 90; //65;
+    minTwist -2; //0.001;
+}
+
+writeFlags
+(
+    scalarLevels
+    layerSets
+    layerFields
+);
+
+
+mergeTolerance 1e-6;
+
+
+// ************************************************************************* //

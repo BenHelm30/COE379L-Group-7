@@ -1,0 +1,11 @@
+/work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Sat Nov  6 15:27:27 CDT 2021
+Running surfaceFeatures on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Running blockMesh on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Running checkMesh on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Running snappyHexMesh on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Running snappyHexMesh on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Running checkMesh on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Running patchSummary on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Running potentialFoam on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+Running simpleFoam on /work/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15

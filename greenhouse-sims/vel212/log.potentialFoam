@@ -1,0 +1,71 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7-49b2b3b8b082
+Exec   : potentialFoam -writePhi -writep
+Date   : Nov 06 2021
+Time   : 15:57:23
+Host   : "c437-133.stampede2.tacc.utexas.edu"
+PID    : 232563
+I/O    : uncollated
+Case   : /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel212
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading velocity field U
+
+Using #calcEntry at line 17 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel212/0/U"
+Using #codeStream with "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel212/dynamicCode/platforms/linux64IccDPInt32Opt/lib/libcodeStream_9b755db78296ff0dbcb3059a9cd24152eebb20c1.so"
+Using #calcEntry at line 20 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel212/0/U"
+Using #codeStream with "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel212/dynamicCode/platforms/linux64IccDPInt32Opt/lib/libcodeStream_db31fd36d339fb6983d3803a21927c595f4de4f7.so"
+Using #calcEntry at line 21 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel212/0/U"
+Using #codeStream with "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel212/dynamicCode/platforms/linux64IccDPInt32Opt/lib/libcodeStream_e22ba5875d26d5ebfc4c3836ce53a3b4695a10be.so"
+Constructing pressure field p
+
+Constructing velocity potential field Phi
+
+No MRF models present
+
+
+Calculating potential flow
+GAMG:  Solving for Phi, Initial residual = 1, Final residual = 3.728512734573783e-12, No Iterations 1000
+GAMG:  Solving for Phi, Initial residual = 0.006177217457161404, Final residual = 7.281818415243198e-13, No Iterations 42
+GAMG:  Solving for Phi, Initial residual = 0.0002566989307003083, Final residual = 9.602340596767196e-13, No Iterations 33
+GAMG:  Solving for Phi, Initial residual = 1.538853216238489e-05, Final residual = 6.216525156149458e-13, No Iterations 26
+GAMG:  Solving for Phi, Initial residual = 1.445944377916509e-06, Final residual = 7.506287284031757e-13, No Iterations 21
+GAMG:  Solving for Phi, Initial residual = 1.516699048298019e-07, Final residual = 7.38080792838014e-13, No Iterations 15
+GAMG:  Solving for Phi, Initial residual = 2.14040851459491e-08, Final residual = 9.892039479570171e-13, No Iterations 12
+GAMG:  Solving for Phi, Initial residual = 3.461842245710126e-09, Final residual = 6.581937725848417e-13, No Iterations 9
+GAMG:  Solving for Phi, Initial residual = 6.567026324229957e-10, Final residual = 7.755479629469199e-13, No Iterations 6
+GAMG:  Solving for Phi, Initial residual = 1.33931797371035e-10, Final residual = 5.647516711449608e-13, No Iterations 4
+GAMG:  Solving for Phi, Initial residual = 2.936483842088427e-11, Final residual = 8.513560664773027e-13, No Iterations 2
+Continuity error = 1.335754197786711e-12
+Interpolated velocity error = 1.624174472218469e-06
+
+Calculating approximate pressure field
+GAMG:  Solving for p, Initial residual = 1, Final residual = 8.595525337352381e-13, No Iterations 60
+GAMG:  Solving for p, Initial residual = 0.07222003320902722, Final residual = 8.082475307237549e-13, No Iterations 48
+GAMG:  Solving for p, Initial residual = 0.008577031059547659, Final residual = 6.479292251367436e-13, No Iterations 42
+GAMG:  Solving for p, Initial residual = 0.001195884867969657, Final residual = 9.78630347744809e-13, No Iterations 37
+GAMG:  Solving for p, Initial residual = 0.0002171212975932775, Final residual = 9.455926955814919e-13, No Iterations 33
+GAMG:  Solving for p, Initial residual = 4.274376257686755e-05, Final residual = 7.42061540333706e-13, No Iterations 29
+GAMG:  Solving for p, Initial residual = 9.474451223766562e-06, Final residual = 8.43926103162114e-13, No Iterations 26
+GAMG:  Solving for p, Initial residual = 2.078593559583155e-06, Final residual = 8.329547504613768e-13, No Iterations 22
+GAMG:  Solving for p, Initial residual = 4.758708993696447e-07, Final residual = 7.655410046515999e-13, No Iterations 19
+GAMG:  Solving for p, Initial residual = 1.08076176588957e-07, Final residual = 9.430586618249649e-13, No Iterations 15
+GAMG:  Solving for p, Initial residual = 2.522170495238287e-08, Final residual = 8.316578855327658e-13, No Iterations 12
+ExecutionTime = 1092.71 s  ClockTime = 1093 s
+
+End
+

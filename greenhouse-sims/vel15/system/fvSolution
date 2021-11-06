@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+
+    // velocity solver
+    U
+    {
+        // Matt's settings
+        solver           smoothSolver;
+        smoother         symGaussSeidel;
+        tolerance        1e-8;
+        relTol           0.01;
+        nSweeps          1;
+    }
+
+    // solver for the turbulent eddy viscosity variable (SA closure)
+    nuTilda
+    {
+        // Matt's settings
+        solver           smoothSolver;
+        smoother         symGaussSeidel;
+        tolerance        1e-8;
+        relTol           0.01;
+        nSweeps          1;
+    }
+
+    // pressure solver
+    p
+    {
+        // Matt's settings
+        //solver           GAMG;
+        //tolerance        1e-8;
+        //relTol           0.01;
+        //smoother         DICGaussSeidel;
+        //maxIter          100;
+        //nCellsInCoarsestLevel 6000;
+
+        solver          GAMG;
+        smoother        DIC;
+        tolerance       1e-12;
+        relTol          0.0; // set to 0 turns it off
+
+    }
+
+    // velocity potential solver is the same as pressure
+    Phi
+    {
+      $p;
+    }
+
+}
+
+potentialFlow
+{
+    nNonOrthogonalCorrectors 10;
+}
+
+SIMPLE
+{
+    momentumPredictor yes;
+    nNonOrthogonalCorrectors 0;
+    consistent yes;
+    pRefCell 0;
+    pRefValue 0;
+
+    residualControl
+    {
+        p               1e-7;
+        U               1e-7;
+        nuTilda         1e-7;
+    }
+}
+
+relaxationFactors
+{
+    fields
+    {
+        p      1;
+    }
+    equations
+    {
+        U      0.90;
+        nuTilda      0.70;
+    }
+}
+
+cache
+{
+    grad(U);
+}
+
+
+// ************************************************************************* //

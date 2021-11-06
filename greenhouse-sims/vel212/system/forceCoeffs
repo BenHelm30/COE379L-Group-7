@@ -1,0 +1,43 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+forceCoeffs
+{
+    type            forceCoeffs;
+
+    libs            ("libforces.so");
+
+    writeControl    timeStep;
+    timeInterval    1;
+
+    log             yes;
+
+    // specify the patches on which to compute forces
+    patches         (greenhouse);
+
+    // forces
+    liftDir         (0 0 1);    // Lift direction, z
+    dragDir         (1 0 0);    // Drag direction, x
+
+    // moments
+    CofR            (0 0 0);    // Centre of rotation for moment calculations 
+    pitchAxis       (0 1 0);    // Pitch axis, y
+
+    // references
+    magUInf         1.0;        // reference velocity
+    lRef            1.0;        // reference length for moment 
+    Aref            4.0;        // reference area (frontal area)
+
+    // do not change
+    rho             rhoInf;     // Incompressible
+    rhoInf          1.0;        // Incompressible
+
+}
+
+
+// ************************************************************************* //

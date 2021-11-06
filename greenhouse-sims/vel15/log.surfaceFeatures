@@ -1,0 +1,74 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7-49b2b3b8b082
+Exec   : surfaceFeatures
+Date   : Nov 06 2021
+Time   : 15:27:30
+Host   : "c437-124.stampede2.tacc.utexas.edu"
+PID    : 210112
+I/O    : uncollated
+Case   : /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Reading surfaceFeaturesDict
+
+Surface            : "greenhouse.stl"
+
+
+Feature line extraction is only valid on closed manifold surfaces.
+Statistics:
+Triangles    : 32768
+Vertices     : 16386
+Bounding Box : (-1 -2 0) (1 2 1)
+
+
+Constructing feature set from included angle 150
+Selecting edges purely based on geometric tests: no
+Removing all non-manifold edges (edges with > 2 connected faces) unless they cross multiple regions
+
+Initial feature set:
+    feature points : 4
+    feature edges  : 16388
+    of which
+        region edges   : 0
+        external edges : 16388
+        internal edges : 0
+
+
+Final feature set:
+points      : 16386
+edges       : 16388
+boundingBox : (-1 -2 0) (1 2 1)
+point classification :
+    convex feature points          :        4
+    concave feature points         :        0
+    mixed feature points           :        0
+    other (non-feature) points     :    16382
+edge classification :
+    external (convex angle) edges  :    16388
+    internal (concave angle) edges :        0
+    flat region edges              :        0
+    open edges                     :        0
+    multiply connected edges       :        0
+
+Writing extendedFeatureEdgeMesh to "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/constant/extendedFeatureEdgeMesh/greenhouse.extendedFeatureEdgeMesh"
+
+Writing extendedEdgeMesh components to "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/constant/extendedFeatureEdgeMesh/greenhouse"
+
+Writing featureEdgeMesh to "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/constant/triSurface/greenhouse.eMesh"
+
+ExecutionTime = 2.4 s  ClockTime = 2 s
+
+End
+

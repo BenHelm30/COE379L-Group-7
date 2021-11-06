@@ -1,0 +1,36 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Copy STL file over 
+cp greenhouse_R1_W4.stl constant/triSurface/greenhouse.stl
+runApplication surfaceFeatures
+
+runApplication blockMesh
+runApplication checkMesh
+
+runApplication decomposePar -copyZero
+
+runParallel snappyHexMesh -dict system/snappyHexMeshDict.castellatedMeshSnap -overwrite
+
+mv log.snappyHexMesh log.snappyHexMesh-1
+runParallel snappyHexMesh -dict system/snappyHexMeshDict.addLayers -overwrite
+
+mv log.checkMesh log.checkMesh-1
+runParallel checkMesh
+
+runParallel patchSummary
+
+runParallel potentialFoam -writePhi -writep
+
+runParallel simpleFoam
+
+mv log.simpleFoam log.simpleFoam-1
+runParallel simpleFoam -postProcess -funcs '( wallShearStress mag(U) xaxis arc )' -latestTime
+
+#runApplication reconstructParMesh -constant
+#runApplication reconstructPar -latestTime
+
+#------------------------------------------------------------------------------

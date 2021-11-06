@@ -1,0 +1,127 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7-49b2b3b8b082
+Exec   : patchSummary
+Date   : Nov 06 2021
+Time   : 15:54:46
+Host   : "c437-124.stampede2.tacc.utexas.edu"
+PID    : 224593
+I/O    : uncollated
+Case   : /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Time = 0
+
+Valid fields:
+    volScalarField	thickness
+Using #calcEntry at line 17 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/0/nut"
+Using #codeStream with "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/platforms/linux64IccDPInt32Opt/lib/libcodeStream_76c83f1143a2796d59751098025d5f8454316b48.so"
+Using #calcEntry at line 21 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/0/nut"
+Using #codeStream with "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/platforms/linux64IccDPInt32Opt/lib/libcodeStream_0ad233123955d89394ffd38e416961666b9a7197.so"
+Creating new library in "dynamicCode/_0ad233123955d89394ffd38e416961666b9a7197/platforms/linux64IccDPInt32Opt/lib/libcodeStream_0ad233123955d89394ffd38e416961666b9a7197.so"
+Invoking "wmake -s libso /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_0ad233123955d89394ffd38e416961666b9a7197"
+wmake libso /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_0ad233123955d89394ffd38e416961666b9a7197
+    ln: ./lnInclude
+    wmkdep: codeStreamTemplate.C
+    Ctoo: codeStreamTemplate.C
+    ld: /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_0ad233123955d89394ffd38e416961666b9a7197/../platforms/linux64IccDPInt32Opt/lib/libcodeStream_0ad233123955d89394ffd38e416961666b9a7197.so
+    volScalarField	nut
+Using #calcEntry at line 17 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/0/U"
+Using #calcEntry at line 20 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/0/U"
+Using #codeStream with "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/platforms/linux64IccDPInt32Opt/lib/libcodeStream_db31fd36d339fb6983d3803a21927c595f4de4f7.so"
+Creating new library in "dynamicCode/_db31fd36d339fb6983d3803a21927c595f4de4f7/platforms/linux64IccDPInt32Opt/lib/libcodeStream_db31fd36d339fb6983d3803a21927c595f4de4f7.so"
+Invoking "wmake -s libso /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_db31fd36d339fb6983d3803a21927c595f4de4f7"
+wmake libso /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_db31fd36d339fb6983d3803a21927c595f4de4f7
+    ln: ./lnInclude
+    wmkdep: codeStreamTemplate.C
+    Ctoo: codeStreamTemplate.C
+    ld: /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_db31fd36d339fb6983d3803a21927c595f4de4f7/../platforms/linux64IccDPInt32Opt/lib/libcodeStream_db31fd36d339fb6983d3803a21927c595f4de4f7.so
+Using #calcEntry at line 21 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/0/U"
+Using #codeStream with "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/platforms/linux64IccDPInt32Opt/lib/libcodeStream_e22ba5875d26d5ebfc4c3836ce53a3b4695a10be.so"
+Creating new library in "dynamicCode/_e22ba5875d26d5ebfc4c3836ce53a3b4695a10be/platforms/linux64IccDPInt32Opt/lib/libcodeStream_e22ba5875d26d5ebfc4c3836ce53a3b4695a10be.so"
+Invoking "wmake -s libso /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_e22ba5875d26d5ebfc4c3836ce53a3b4695a10be"
+wmake libso /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_e22ba5875d26d5ebfc4c3836ce53a3b4695a10be
+    ln: ./lnInclude
+    wmkdep: codeStreamTemplate.C
+    Ctoo: codeStreamTemplate.C
+    ld: /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_e22ba5875d26d5ebfc4c3836ce53a3b4695a10be/../platforms/linux64IccDPInt32Opt/lib/libcodeStream_e22ba5875d26d5ebfc4c3836ce53a3b4695a10be.so
+    volVectorField	U
+Using #calcEntry at line 17 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/0/nuTilda"
+Using #calcEntry at line 20 in file "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/0/nuTilda"
+Using #codeStream with "/work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/platforms/linux64IccDPInt32Opt/lib/libcodeStream_11f85fa286a88a1d334afc3a9ea0b0eb5390d3ed.so"
+Creating new library in "dynamicCode/_11f85fa286a88a1d334afc3a9ea0b0eb5390d3ed/platforms/linux64IccDPInt32Opt/lib/libcodeStream_11f85fa286a88a1d334afc3a9ea0b0eb5390d3ed.so"
+Invoking "wmake -s libso /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_11f85fa286a88a1d334afc3a9ea0b0eb5390d3ed"
+wmake libso /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_11f85fa286a88a1d334afc3a9ea0b0eb5390d3ed
+    ln: ./lnInclude
+    wmkdep: codeStreamTemplate.C
+    Ctoo: codeStreamTemplate.C
+    ld: /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel15/dynamicCode/_11f85fa286a88a1d334afc3a9ea0b0eb5390d3ed/../platforms/linux64IccDPInt32Opt/lib/libcodeStream_11f85fa286a88a1d334afc3a9ea0b0eb5390d3ed.so
+    volScalarField	nuTilda
+    volScalarField	p
+    volScalarField	cellLevel
+    pointScalarField	pointLevel
+    volScalarField	thicknessFraction
+    volScalarField	nSurfaceLayers
+
+patch	: yMinusWall
+patch	: yPlusWall
+patch	: bottomWall
+patch	: topWall
+    scalar		thickness		fixedValue
+    scalar		nut		zeroGradient
+    scalar		nuTilda		zeroGradient
+    scalar		p		zeroGradient
+    scalar		cellLevel		calculated
+    scalar		thicknessFraction		fixedValue
+    scalar		nSurfaceLayers		fixedValue
+    vector		U		slip
+    scalar		pointLevel		calculated
+
+patch	: inlet
+    scalar		thickness		fixedValue
+    scalar		nut		fixedValue
+    scalar		nuTilda		fixedValue
+    scalar		p		zeroGradient
+    scalar		cellLevel		calculated
+    scalar		thicknessFraction		fixedValue
+    scalar		nSurfaceLayers		fixedValue
+    vector		U		fixedValue
+    scalar		pointLevel		calculated
+
+patch	: outlet
+    scalar		thickness		fixedValue
+    scalar		nut		zeroGradient
+    scalar		nuTilda		zeroGradient
+    scalar		p		fixedValue
+    scalar		cellLevel		calculated
+    scalar		thicknessFraction		fixedValue
+    scalar		nSurfaceLayers		fixedValue
+    vector		U		zeroGradient
+    scalar		pointLevel		calculated
+
+wall	: greenhouse
+    scalar		thickness		fixedValue
+    scalar		nut		fixedValue
+    scalar		nuTilda		fixedValue
+    scalar		p		zeroGradient
+    scalar		cellLevel		calculated
+    scalar		thicknessFraction		fixedValue
+    scalar		nSurfaceLayers		fixedValue
+    vector		U		noSlip
+    scalar		pointLevel		calculated
+
+End
+
