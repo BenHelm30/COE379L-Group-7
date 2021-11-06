@@ -1,0 +1,293 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7-49b2b3b8b082
+Exec   : snappyHexMesh -dict system/snappyHexMeshDict.addLayers -overwrite
+Date   : Nov 06 2021
+Time   : 15:54:24
+Host   : "c438-013.stampede2.tacc.utexas.edu"
+PID    : 267161
+I/O    : uncollated
+Case   : /work2/08396/ykhatri/stampede2/COE379L-Group-7/greenhouse-sims/vel30
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Read mesh in = 0.5 s
+
+Overall mesh bounding box  : (-29 -29 0) (29 29 29.00000000000001)
+Relative tolerance         : 1e-06
+Absolute matching distance : 8.700000000000001e-05
+
+Reading refinement surfaces.
+Read refinement surfaces in = 1.48 s
+
+Reading refinement shells.
+Refinement level 4 for all cells inside sphere1
+Refinement level 3 for all cells inside sphere2
+Refinement level 2 for all cells inside sphere3
+Read refinement shells in = 0 s
+
+Setting refinement level of surface to be consistent with shells.
+Checked shell refinement in = 0 s
+
+Reading features.
+Read edgeMesh greenhouse.eMesh
+    points      : 16386
+    edges       : 16388
+    boundingBox : (-1 -2 0) (1 2 1)
+
+Refinement level according to distance to "greenhouse.eMesh" (16386 points, 16388 edges).
+    level 6 for all cells within 0 metre.
+Read features in = 0.2 s
+
+
+Determining initial surface intersections
+-----------------------------------------
+
+Edge intersection testing:
+    Number of edges             : 1277954
+    Number of edges to retest   : 1277954
+    Number of intersected edges : 12642
+Calculated surface intersections in = 28.31 s
+
+Initial mesh : cells:411692  faces:1277954  points:455704
+Cells per refinement level:
+    0	37724
+    1	7796
+    2	112648
+    3	83796
+    4	123112
+    5	30372
+    6	16244
+
+Adding patches for surface regions
+----------------------------------
+
+Patch Type                Region                        
+----- ----                ------                        
+greenhouse:
+
+6     wall                greenhouse                    
+
+Added patches in = 0.03 s
+
+ Foam::decompositionMethod::New 
+{
+    method          none;
+    numberOfSubdomains 1;
+}
+
+Selecting decompositionMethod none
+Layer thickness specified as first layer and expansion ratio.
+
+Shrinking and layer addition phase
+----------------------------------
+
+Using mesh parameters 
+{
+    maxNonOrtho     90;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave      80;
+    minVol          1e-13;
+    minTetQuality   -1e+30;
+    minArea         -1;
+    minTwist        -2;
+    minDeterminant  0.0001;
+    minFaceWeight   0.02;
+    minVolRatio     0.01;
+    minTriangleTwist -1;
+    nSmoothScale    4;
+    errorReduction  0.75;
+}
+
+
+
+Merging all faces of a cell
+---------------------------
+    - which are on the same patch
+    - which make an angle < 130 degrees
+      (cos:-0.6427876096865394)
+    - as long as the resulting face doesn't become concave by more than 90 degrees
+      (0=straight, 180=fully concave)
+
+Merging 22 sets of faces.
+
+Edge intersection testing:
+    Number of edges             : 1277928
+    Number of edges to retest   : 196
+    Number of intersected edges : 12616
+
+Undo iteration 0
+----------------
+Checking faces in error :
+    non-orthogonality > 90  degrees                        : 0
+    faces with face pyramid volume < 1e-13                 : 0
+    faces with concavity > 80  degrees                     : 0
+    faces with skewness > 4   (internal) or 20  (boundary) : 0
+    faces with interpolation weights (0..1)  < 0.02        : 0
+    faces with volume ratio of neighbour cells < 0.01      : 0
+    faces on cells with determinant < 0.0001                : 0
+
+Merging all points on surface that
+- are used by only two boundary faces and
+- make an angle with a cosine of more than -0.6427876096865394.
+
+Removing 34 straight edge points ...
+
+Edge intersection testing:
+    Number of edges             : 1277928
+    Number of edges to retest   : 332
+    Number of intersected edges : 12616
+
+Undo iteration 0
+----------------
+Checking faces in error :
+    non-orthogonality > 90  degrees                        : 0
+    faces with face pyramid volume < 1e-13                 : 0
+    faces with concavity > 80  degrees                     : 0
+    faces with skewness > 4   (internal) or 20  (boundary) : 0
+    faces with interpolation weights (0..1)  < 0.02        : 0
+    faces with volume ratio of neighbour cells < 0.01      : 0
+    faces on cells with determinant < 0.0001                : 0
+
+Checking mesh manifoldness ...
+
+Checking initial mesh ...
+Checking faces in error :
+    non-orthogonality > 90  degrees                        : 0
+    faces with face pyramid volume < 1e-13                 : 0
+    faces with concavity > 80  degrees                     : 0
+    faces with skewness > 4   (internal) or 20  (boundary) : 0
+    faces with interpolation weights (0..1)  < 0.02        : 0
+    faces with volume ratio of neighbour cells < 0.01      : 0
+    faces on cells with determinant < 0.0001                : 0
+Detected 0 illegal faces (concave, zero area or negative cell pyramid volume)
+
+Adding in total 0 inter-processor patches to handle extrusion of non-manifold processor boundaries.
+
+Handling points with inconsistent layer specification ...
+
+Handling non-manifold points ...
+
+Checking patch manifoldness ...
+Outside of local patch is multiply connected across edges or points at 0 points.
+Set displacement to zero for all 0 non-manifold points
+
+Handling feature edges ...
+
+patch      faces    layers avg thickness[m]
+                           near-wall overall
+-----      -----    ------ --------- -------
+greenhouse 12664    36     0.000167  0.04    
+
+Selecting externalDisplacementMeshMover displacementMedialAxis
+displacementMedialAxis : Calculating distance to Medial Axis ...
+displacementMedialAxis : Smoothing normals ...
+    Iteration 0   residual 0.01826338567133917
+displacementMedialAxis : Inserting points on patch yMinusWall if angle to nearest layer patch > 30 degrees.
+displacementMedialAxis : Inserting points on patch yPlusWall if angle to nearest layer patch > 30 degrees.
+displacementMedialAxis : Inserting points on patch inlet if angle to nearest layer patch > 30 degrees.
+displacementMedialAxis : Inserting points on patch outlet if angle to nearest layer patch > 30 degrees.
+displacementMedialAxis : Inserting points on patch bottomWall if angle to nearest layer patch > 30 degrees.
+displacementMedialAxis : Inserting points on patch topWall if angle to nearest layer patch > 30 degrees.
+displacementMedialAxis : Smoothing normals in interior ...
+    Iteration 0   residual 0.03955943333284296
+
+Layer addition iteration 0
+--------------------------
+
+Determining displacement for added points according to pointNormal ...
+Detected 0 points with point normal pointing through faces.
+Reset displacement at 0 points to average of surrounding points.
+
+displacementMedialAxis : Smoothing using Medial Axis ...
+displacementMedialAxis : Reducing layer thickness at 0 nodes where thickness to medial axis distance is large 
+displacementMedialAxis : Removing isolated regions ...
+displacementMedialAxis : Number of isolated points extrusion stopped : 0
+displacementMedialAxis : Smoothing field ...
+    Iteration 0   residual 1.097908526161308e-08
+displacementMedialAxis : Moving mesh ...
+displacementMedialAxis : Iteration 0
+Moving mesh using displacement scaling : min:1  max:1
+Checking faces in error :
+    non-orthogonality > 90  degrees                        : 0
+    faces with face pyramid volume < 1e-13                 : 0
+    faces with concavity > 80  degrees                     : 0
+    faces with skewness > 4   (internal) or 20  (boundary) : 0
+    faces with interpolation weights (0..1)  < 0.02        : 0
+    faces with volume ratio of neighbour cells < 0.01      : 0
+    faces on cells with determinant < 0.0001                : 0
+displacementMedialAxis : Successfully moved mesh
+displacementMedialAxis : Finished moving mesh ...
+truncateDisplacement : Unextruded 0 faces due to non-consecutive vertices being extruded.
+truncateDisplacement : Unextruded 0 faces due to stringed edges with inconsistent extrusion.
+
+Setting up information for layer truncation ...
+
+Checking mesh with layer ...
+Checking faces in error :
+    non-orthogonality > 90  degrees                        : 0
+    faces with face pyramid volume < 1e-13                 : 0
+    faces with concavity > 80  degrees                     : 0
+    faces with skewness > 4   (internal) or 20  (boundary) : 0
+    faces with interpolation weights (0..1)  < 0.02        : 0
+    faces with volume ratio of neighbour cells < 0.01      : 0
+    faces on cells with determinant < 0.0001                : 0
+Detected 0 illegal faces (concave, zero area or negative cell pyramid volume)
+Extruding 12664 out of 12664 faces (100%). Removed extrusion at 0 faces.
+Added 455904 out of 455904 cells (100%).
+Edge intersection testing:
+    Number of edges             : 2670840
+    Number of edges to retest   : 0
+    Number of intersected edges : 466792
+Writing 455904 added cells to cellSet addedCells
+Writing 443240 faces inside added layer to faceSet layerFaces
+
+Writing fields with layer information:
+    nSurfaceLayers    : actual number of layers
+    thickness         : overall layer thickness
+    thicknessFraction : overall layer thickness (fraction of desired thickness)
+
+
+patch      faces    layers   overall thickness
+                             [m]       [%]
+-----      -----    ------   ---       ---
+greenhouse 12664    36       0.04      100     
+
+Layer mesh : cells:867596  faces:2670840  points:936806
+Cells per refinement level:
+    0	37724
+    1	7796
+    2	112648
+    3	83796
+    4	123112
+    5	284532
+    6	217988
+Writing mesh to time constant
+Wrote mesh in = 73.29000000000001 s.
+Layers added in = 73.29000000000001 s.
+Checking final mesh ...
+Checking faces in error :
+    non-orthogonality > 90  degrees                        : 0
+    faces with face pyramid volume < 1e-13                 : 0
+    faces with concavity > 80  degrees                     : 0
+    faces with skewness > 4   (internal) or 20  (boundary) : 0
+    faces with interpolation weights (0..1)  < 0.02        : 0
+    faces with volume ratio of neighbour cells < 0.01      : 0
+    faces on cells with determinant < 0.0001                : 0
+Finished meshing without any errors
+Finished meshing in = 112.92 s.
+End
+
